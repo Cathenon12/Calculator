@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-primary via-primary-dark to-accent min-h-screen;
+  }
+  
+  body.dark {
+    @apply bg-gradient-to-br from-[#0f0f23] via-[#1a1a3f] to-[#2d1b4e];
+  }
+}
