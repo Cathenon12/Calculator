@@ -4,10 +4,78 @@
 
 @layer base {
   body {
-    @apply bg-gradient-to-br from-primary via-primary-dark to-accent min-h-screen;
+    @apply bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 min-h-screen;
   }
   
   body.dark {
-    @apply bg-gradient-to-br from-[#0f0f23] via-[#1a1a3f] to-[#2d1b4e];
+    @apply bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900;
+  }
+}
+
+@layer components {
+  /* Boutons avec effet glassmorphism */
+  .btn-calc {
+    @apply px-6 py-4 rounded-xl font-semibold transition-all duration-200 
+           bg-white/10 backdrop-blur-md border border-white/20 
+           hover:bg-white/20 hover:scale-105 hover:shadow-glow-purple 
+           active:scale-95 text-white;
+  }
+  
+  .btn-operator {
+    @apply btn-calc bg-gradient-to-br from-indigo-500 to-purple-600 
+           hover:from-indigo-600 hover:to-purple-700 border-indigo-400/30 shadow-glow;
+  }
+  
+  .btn-number {
+    @apply btn-calc hover:bg-white/15 hover:shadow-glow-purple;
+  }
+  
+  .btn-equals {
+    @apply btn-calc bg-gradient-to-r from-pink-500 to-rose-600 
+           hover:from-pink-600 hover:to-rose-700 border-pink-400/30 
+           shadow-lg shadow-pink-500/30 hover:shadow-glow-pink;
+  }
+  
+  /* Cartes avec effet glassmorphism */
+  .glass-card {
+    @apply bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl;
+  }
+  
+  /* Animations personnalisées */
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Scrollbar personnalisée */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-white/5 rounded-full;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-white/20 rounded-full hover:bg-white/30;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
   }
 }

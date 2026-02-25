@@ -36,7 +36,7 @@ else
 fi
 
 # Démarrer le frontend
-echo -e "${BLUE}🎨 Démarrage du frontend (port 5173)...${NC}"
+echo -e "${BLUE}🎨 Démarrage du frontend (port 3000)...${NC}"
 cd calculator-react
 npm start > ../frontend.log 2>&1 &
 FRONTEND_PID=$!
@@ -57,7 +57,7 @@ echo ""
 echo -e "${GREEN}✅ Application démarrée avec succès !${NC}"
 echo ""
 echo "📍 URLs:"
-echo "   Frontend: http://localhost:5173"
+echo "   Frontend: http://localhost:3000"
 echo "   Backend:  http://localhost:5000"
 echo ""
 echo "📝 Logs:"
