@@ -2,21 +2,31 @@
   "version": 2,
   "builds": [
     {
+      "src": "backend/server.js",
+      "use": "@vercel/node"
+    },
+    {
       "src": "calculator-react/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "calculator-react/build"
+        "distDir": "build"
       }
     }
   ],
   "routes": [
     {
-      "src": "/static/(.*)",
-      "dest": "/static/$1"
+      "src": "/api/(.*)",
+      "dest": "backend/server.js"
     },
     {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "calculator-react/$1"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/backend/server.js"
     }
   ]
 }
