@@ -5,6 +5,7 @@ require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+const HOST = process.env.HOST || '0.0.0.0';
 
 // Database connection
 const db = require('./config/database');
@@ -39,9 +40,8 @@ app.use((err, req, res, next) => {
 });
 
 // Start server
-app.listen(PORT, () => {
-    console.log(`🚀 Serveur démarré sur http://localhost:${PORT}`);
-    console.log(`📊 API Calculatrice disponible sur http://localhost:${PORT}/api`);
-    console.log(`🧠 API IA disponible sur http://localhost:${PORT}/api/ai`);
-    console.log(`💾 Base de données: ${process.env.DB_NAME}`);
+app.listen(PORT, HOST, () => {
+    console.log(`🚀 Serveur démarré sur http://${HOST}:${PORT}`);
+    console.log(`📊 API Calculatrice disponible`);
+    console.log(`✅ Backend prêt pour production`);
 });
